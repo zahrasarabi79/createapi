@@ -26,11 +26,9 @@
   },
   "name": "creatapi",
   "version": "1.0.0",
-  "main": "api.js",
+  "main": "./public/app.js",
   "scripts": {
-    "start": "npm run init-db && npx nodemon --exec babel-node server.js",
-    "sequelize-skeleton": "npx sequelize init:models; npx sequelize init:config",
-    "init-db": "cd DIR_WHERE_MYSQL_BIN_IS && echo 'DROP DATABASE IF EXISTS api_node_demo; CREATE DATABASE api_node_demo CHARACTER SET utf8 COLLATE utf8_general_ci' | ./mysql -u root && cd -"
+    "start": "nodemon"//اینجا اگر اسکریپت استارت رو بزنیم طبق کانفیگ این  نود مون عمل میکنه
   },
   "keywords": [],
   "author": "",
