@@ -28,7 +28,7 @@
   "version": "1.0.0",
   "main": "./public/app.js",
   "scripts": {
-    "start": "nodemon"//اینجا اگر اسکریپت استارت رو بزنیم طبق کانفیگ این  نود مون عمل میکنه
+    "start": "nodemon"
   },
   "keywords": [],
   "author": "",

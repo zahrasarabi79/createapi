@@ -27,28 +27,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
-// import express, { Request, Response } from "express";
+const cors = require('cors');
 const bodyParser = __importStar(require("body-parser"));
 const server_1 = __importDefault(require("./DB/server"));
-const insertdata_1 = __importDefault(require("./DB/insertdata"));
 // Initialize the express engine
 const api = express();
+const usersRoute = require('./routes/users');
 const port = 3000;
+// Enable CORS for all routes
+api.use(cors());
 api.use(bodyParser.urlencoded({ extended: false }));
 api.use(bodyParser.json());
-api.get("/get", (req, res) => {
-    console.log(req.query);
-    res.send(`hello ${req.query.firstname} ${req.query.lastname} `);
-    console.log(res);
-});
-api.post("/", (req, res) => {
-    const people = {
-        firstname: req.body.name,
-        lastname: req.body.lastname,
-    };
-    insertdata_1.default.insertData(people);
-    res.send(`hiii ${people.firstname} ${people.lastname}`);
-});
+api.use('/', usersRoute);
 api.listen(port, () => {
     console.log(`api up and running on port ${port}`);
     server_1.default.creatTable();
